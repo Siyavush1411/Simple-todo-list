@@ -3,5 +3,3 @@ class User:
         self.login = login
         self.password = password
         
-    login = str
-    password = str

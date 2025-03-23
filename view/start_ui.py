@@ -1,5 +1,5 @@
 from .menu import Menu
 
-def GO():
+def main():
     var = Menu()
     var.show_main_menu()
