@@ -1,3 +1,3 @@
-from view.start_ui import GO
+from view.start_ui import main
 
-GO()
+main()
