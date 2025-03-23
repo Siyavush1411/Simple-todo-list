@@ -8,8 +8,8 @@ class Menu:
         self._user_choice = None
         self.auth = UserAuth()
         
-    def show_main_menu(self):
-        # os.system('clear')
+    def show_main_menu(self) -> None:
+        os.system('clear')
         welcome_text = ViewManager.style_text(WELCOME_TEXT).bright_magenta
         print(ViewManager.align_massive_center(str(welcome_text)))
         self.user_form()
@@ -22,14 +22,14 @@ class Menu:
             if self._user_choice in SOLUTIONS:
                return SOLUTIONS.get(self._user_choice, "Пожалуйста введите число от 1 до 5")
            
-    def menu_form(self):
+    def menu_form(self) -> None:
         try:
             styled_line = str(ViewManager.style_text(UI_TEXT).green.bold)
             print(ViewManager.align_massive_center(styled_line))
         except Exception as e:
             print(f"Ошибка: {e}")
 
-    def user_form(self):
+    def user_form(self) -> None:
         try:
             while True:
                 user_login_form = ViewManager.style_text(USER_LOGIN_FORM).magenta.bold
