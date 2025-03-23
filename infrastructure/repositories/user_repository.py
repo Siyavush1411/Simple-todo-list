@@ -13,7 +13,7 @@ class UserRepository(AbstractUserRepository):
         file_path = self.file_path
         if not file_path.exists():
             file_path.parent.mkdir(parents=True, exist_ok=True)
-            file_path.touch() 
+            file_path.touch()
 
         with file_path.open("r", encoding="utf-8") as file:
             users = []
