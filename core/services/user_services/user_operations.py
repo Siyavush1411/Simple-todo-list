@@ -1,5 +1,5 @@
 class UserOperation:
-    
+
     @staticmethod
     def user_request() -> int : 
         while True:
@@ -8,3 +8,4 @@ class UserOperation:
                 return user_choose
             except ValueError:
                 print("Введите числовое значение")
+        
