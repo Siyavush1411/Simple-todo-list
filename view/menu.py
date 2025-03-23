@@ -1,6 +1,6 @@
 import os
 from .view_core.ViewManager import ViewManager
-from core.services.user_services.user_choose import UserOperation
+from core.services.user_services.user_operations import UserOperation
 from core.common import WELCOME_TEXT, UI_TEXT, SOLUTIONS
 
 class Menu:
