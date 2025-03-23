@@ -7,13 +7,14 @@ class UserRepository(AbstractUserRepository):
     def __init__(self, file_path=USER_FILE_PATH):
         self.file_path = file_path
         self.users = self._load_users()
+        self.next_id = self._get_next_id()
 
     def _load_users(self):
         with open(self.file_path, 'r') as file:
             users = []
             for line in file:
                 user_data = line.strip().split(',')
-                user = User(id=user_data[0], login=user_data[1], password=user_data[2])
+                user = User(id=int(user_data[0]), login=user_data[1], password=user_data[2])
                 users.append(user)
             return users
 
@@ -22,7 +23,14 @@ class UserRepository(AbstractUserRepository):
             for user in self.users:
                 file.write(f"{user.id},{user.login},{user.password}\n")
 
+    def _get_next_id(self):
+        if not self.users:
+            return 1
+        return max(user.id for user in self.users) + 1
+
     def add_user(self, user : User):
+        user.id = self.next_id
+        self.next_id += 1
         self.users.append(user)
         self._save_users()
 
@@ -32,6 +40,13 @@ class UserRepository(AbstractUserRepository):
                 return user
         return None
 
+    def load_user_by_login(self, login):
+        for user in self.users:
+            if user.login == login:
+                return user
+        return None
+    
     def remove_user(self, user_id : int):
         self.users = [user for user in self.users if user.id != user_id]
         self._save_users()
+        self.next_id = self._get_next_id()
