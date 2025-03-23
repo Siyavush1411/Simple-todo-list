@@ -13,7 +13,6 @@ class UserAuth:
         
     def login(self, login : str, password : str) -> User | None:
         user = self.user_repository.load_user_by_login(login)
-        print(password)
-        if user and user.password == HashFunction.hash_function(password):
+        if user and str(user.password) == str(HashFunction.hash_function(password)):
             return user
         return None
