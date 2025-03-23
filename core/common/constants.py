@@ -1,3 +1,5 @@
+from infrastructure import BASE_DIR
+
 UI_TEXT = '''
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ 1 | 'добавить заметки'     ┃
@@ -19,6 +21,19 @@ WELCOME_TEXT = '''
 ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 '''
 
+USER_LOGIN_FORM = '''
+╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+┃    Введите логин и пароль     ┃
+┃     или зарегистрируйтесь     ┃
+╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+'''
+
+LOGIN_MESSAGE = '''
+╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+┃   не верный логин или пароль  ┃
+╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+'''
+
 #_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 
 SOLUTIONS = {
@@ -37,9 +52,17 @@ STATE = {
     5 : "select_language",
     6 : "get_all_users",
     8 : "register",
-    9 : "login"
+    9 : "login",
+    10 : "exit",
+    11 : "menu",
+    12 : "user_auth",
+    13 : "add_user",
+    14 : "remove_user",
+    15 : "get_user_by_id",
+    16 : "get_user_by_login",
+    17 : "get_all_users",
 }
 
 #_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 
-USER_FILE_PATH = 'static/users_file.txt'
+USER_FILE_PATH = BASE_DIR / "static" / "users.txt"
