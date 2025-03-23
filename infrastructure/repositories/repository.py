@@ -6,11 +6,11 @@ class AbstractUserRepository(ABC):
         pass
     
     @abstractmethod
-    def load_all_users(self):
+    def _load_users(self):
         pass
     
     @abstractmethod
-    def save_user(self, user):
+    def _save_users(self, user):
         pass
     
     @abstractmethod
